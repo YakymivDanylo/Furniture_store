@@ -29,7 +29,7 @@ Order Order::operator=(const Order &rhs) {
     }
 }
 ostream &operator<<(ostream &os, const Order &obj){
-    os<<" Address of delivery: "<<obj.addressDelivery<<"; Price of goods: "<<obj.priceGoods<<"; Currency: "<<obj.currency<<"; Price of delivery: "<<obj.priceDeliver<<"; Status: "<<obj.status;
+    os<<" \t "<<obj.addressDelivery<<"\t"<<obj.priceGoods<<" \t"<<obj.currency<<" \t"<<obj.priceDeliver<<" \t"<<obj.status;
     return os;
 }
 

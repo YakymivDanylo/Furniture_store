@@ -20,7 +20,8 @@ public:
     ~Client(){};
     void getPerson() override;
     void print(ostream &os) const override;
-
+    string getNameOfClient();
+    string getSurnameOfClient();
 
 };
 #endif

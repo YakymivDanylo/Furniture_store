@@ -81,44 +81,61 @@ int main() {
         else{//client
             Shtrix();
             cout<<"Welcome"<<endl;
-            AddClient();
-            cout<<"Choose what do you want: "<<endl;
-            cout<<"A - View catalog of furniture "<<endl;
-            cout<<"B - Make Order "<<endl;
-            cout<<"C - View history "<<endl;
-            cout<<" press Q - if you want to stop "<<endl;
-            char choice;
-            cin>>choice;
-            try{
-                if(choice!='A'&& choice!='B'&&choice!='C'&&choice!='Q') {
-                    throw WrongChoice();
+            cout << "You need to log in" << endl;
+            cout << "Enter your name: " << endl;
+            shared_ptr<string> name{new string{""}};
+            cin >> *name;
+            cout << "Enter your surname: " << endl;
+            shared_ptr<string> surname{new string{""}};
+            cin >> *surname;
+            cout << "Enter your age: " << endl;
+            shared_ptr<int> age{new int{0}};
+            cin >> *age;
+            cout << "Enter your living address: " << endl;
+            shared_ptr<string> livingAddress{new string{" "}};
+            cin >> *livingAddress;
+            Client newClient(*name,*surname,*age,*livingAddress);
+            AddClient(newClient);
+            while (true) {
+                cout << "Choose what do you want: " << endl;
+                cout << "A - View catalog of furniture " << endl;
+                cout << "B - Make Order " << endl;
+                cout << "C - View history " << endl;
+                cout << " press Q - if you want to stop " << endl;
+                char choice;
+
+                cin >> choice;
+                try {
+
+                    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'Q') {
+                        throw WrongChoice();
+                    }
+                    switch (choice) {
+                        case 'A': {
+
+                            ShowFur();
+                            break;
+                        }
+                        case 'B': {
+                            MakeOrder(newClient);
+                            break;
+                        }
+                        case 'C': {
+
+                            break;
+                        }
+                        case 'Q': {
+                            return 0;
+                        }
+                    }
+
                 }
-                switch (choice) {
-                    case 'A':{
-                        ShowFur();
-                        break;
-                    }
-                    case 'B':{
-                        MakeOrder();
-                        break;
-                    }
-                    case 'C':{
-
-                        break;
-                    }
-                    case 'Q':{
-                        return 0;
-                    }
-
+                catch (WrongChoice &A) {
+                    cerr << A.what();
                 }
+
+
             }
-            catch (WrongChoice &A){
-                cerr<<A.what();
-            }
-
-
-
-
         }
     }
     catch (WrongPassword &Password){

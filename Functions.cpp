@@ -93,18 +93,17 @@ bool IsEmpInFile(string nameEm, string surnameEm) {
         return false;
     }
 }
-bool IsClieInFile(string nameC, string surnameC) {
-    ifstream finE(R"(C:\clion\Furniture_store\List\Employee_list.txt)");
+bool IsClieInFile(string nameClie, string surnameClie) {
+    ifstream finE(R"(C:\clion\Furniture_store\List\Client_list.txt)");
     if (!finE.is_open()) {
         cerr << "Error opening file: " << endl;
     } else {
         shared_ptr<string> name{new string{""}};
         shared_ptr<string> surname{new string{""}};
-        shared_ptr<string> position{new string{""}};
-        shared_ptr<int> salary{new int{0}};
-        shared_ptr<int> numOfEmp{new int{0}};
-        while (finE >> *name >> *surname >> *salary >> *position >> *numOfEmp) {
-            if (nameC == *name && surnameC == *surname) {
+        shared_ptr<int> age{new int{0}};
+        shared_ptr<string> livingAddress{new string{""}};
+        while (finE >> *name >> *surname >> *age >> *livingAddress ) {
+            if (nameClie == *name && surnameClie == *surname) {
                 finE.close();
                 return true;
             }
@@ -114,43 +113,72 @@ bool IsClieInFile(string nameC, string surnameC) {
     }
 }
 
-void AddClient(string nameC,string surnameC){
-    cout<<"You need to log in"<<endl;
-    cout<<"Enter your name: "<<endl;
-    shared_ptr<string>name{new string{""}};
-    cin>>*name;
-    cout<<"Enter your surname: "<<endl;
-    shared_ptr<string>surname{new string{""}};
-    cin>>*surname;
-     cout<<"Enter your age: "<<endl;
-    shared_ptr<int> age{new int{0}};
-    cin>>*age;
-     cout<<"Enter your living address: "<<endl;
-    shared_ptr<string> livingAddress{new string{" "}};
-    cin>>*livingAddress;
-    ifstream ()
-    Client client(*name,*surname,*age,*livingAddress);
-    ofstream foutCl(R"(C:\clion\Furniture_store\List\Client_list.txt)",ios_base::app);
-    foutCl<<client<<endl;
-    foutCl.close();
+void AddClient(Client client) {
+
+    if (!IsClieInFile(client.getNameOfClient(),client.getSurnameOfClient())) {
+        ifstream finCl(R"(C:\clion\Furniture_store\List\Client_list.txt)");
+        if (!finCl.is_open()) {
+            cerr << "Error opening file" << endl;
+        } else {
+
+            ofstream foutCl(R"(C:\clion\Furniture_store\List\Client_list.txt)", ios_base::app);
+            foutCl << client << endl;
+            foutCl.close();
+        }
+    }
+
 
 }
-void ShowFur(){
+    void ShowFur() {
+        ifstream finFur(R"(C:\clion\Furniture_store\List\Furniture_list.txt)");
+        if (!finFur.is_open()) {
+            cerr << "Error opening file: " << endl;
+        }
+        shared_ptr<string> name{new string{""}};
+        shared_ptr<string> surname{new string{""}};
+        shared_ptr<int> num{new int{0}};
+        shared_ptr<double> price{new double{0.0}};
+        shared_ptr<string> currency{new string{""}};
+        shared_ptr<string> color{new string{""}};
+        while (finFur >> *num >> *name >> *price >> *currency >> *color) {
+            cout << *num << "\t" << *name << "\t" << *price << "\t" << *currency << "\t" << *color << "\t" << endl;
+        }
+        finFur.close();
+    }
+
+
+
+void MakeOrder(Client client) {
+    cout<<"Choose the number of furniture"<<endl;
+    shared_ptr<int> num{new int{0}};
+    shared_ptr<int> numOfFurniture{new int{0}};
+    shared_ptr<string> name{new string{""}};
+    shared_ptr<int> price{new int{0}};
+    shared_ptr<string> currency{new string {""}};
+    shared_ptr<string> color{new string {""}};
+    cout<<"Enter number of furniture"<<endl;
+    cin>>*numOfFurniture;
     ifstream finFur(R"(C:\clion\Furniture_store\List\Furniture_list.txt)");
-    if(!finFur.is_open()){
-        cerr<<"Error opening file: "<<endl;
-    }
-    shared_ptr <string> name {new string {""}};
-    shared_ptr<string>surname{new string{""}};
-    shared_ptr <int> num {new int {0}};
-    shared_ptr<double> price{new double {0.0}};
-    shared_ptr <string> currency {new string {""}};
-    shared_ptr <string> color{new string {""}};
     while(finFur>>*num>>*name>>*price>>*currency>>*color){
-        cout<<*num<<"\t"<<*name<<"\t"<<*price<<"\t"<<*currency<<"\t"<<*color<<"\t"<<endl;
-    }
-    finFur.close();
-}
-void MakeOrder(){
+        if(*numOfFurniture==*num){
+            finFur.close();
+            ofstream foutOr(R"(C:\clion\Furniture_store\List\Order_list.txt)",ios_base::app);
+            shared_ptr<string> addressDelivery{new string{""}};
+            shared_ptr<double> priceDelivery{new double{20}};
+            shared_ptr<string> status{new string{"Reserved"}};
+            cout<<"Enter address of delivery"<<endl;
+            cin>>*addressDelivery;
+            Order order(*addressDelivery,*price,*currency,*priceDelivery,*status);
+            foutOr<<client.getNameOfClient()<<"\t"<<order<<endl;
 
+            foutOr.close();
+
+        }
+        else
+        {
+            cerr<<"There is no furniture with that number"<<endl;
+
+        }
+        finFur.close();
+    }
 }

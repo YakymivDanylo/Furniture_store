@@ -29,7 +29,13 @@ void Client::getPerson()
     cout<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<endl;
 }
 
-void Client::print(std::ostream &os) const
-{
-    os<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<endl;
+void Client::print(std::ostream &os) const {
+    os << "Name of the person: " << name << "; Age of the person:" << age << "; Address of the person:" << livingAddress
+       << endl;
+}
+string Client::getNameOfClient() {
+    return name;
+}
+string Client::getSurnameOfClient() {
+    return surname;
 }

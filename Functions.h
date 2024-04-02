@@ -8,15 +8,16 @@
 #include "Furniture.h"
 #include "Order.h"
 #include "Employee.h"
+#include "Client.h"
 using namespace std;
 void  Shtrix();
 void AddFurniture();
 void AddEmployee();
 void ShowEmp();
 bool IsEmpInFile(string nameEm,string surnameEm);
-void AddClient();
+void AddClient(Client client);
 void ShowFur();
-void MakeOrder();
+void MakeOrder(Client client);
 
 
 #endif //FURNITURE_STORE_FUNCTIONS_H
