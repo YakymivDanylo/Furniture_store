@@ -14,7 +14,9 @@ void AddFurniture();
 void AddEmployee();
 void ShowEmp();
 bool IsEmpInFile(string nameEm,string surnameEm);
-
+void AddClient();
+void ShowFur();
+void MakeOrder();
 
 
 #endif //FURNITURE_STORE_FUNCTIONS_H

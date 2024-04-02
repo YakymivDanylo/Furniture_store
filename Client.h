@@ -7,14 +7,13 @@ using namespace std;
 
 class Client : public People{
 private:
+    string surname;
     string livingAddress;
-    string dateOfBirth;
-    bool identification() {
-        return true;
-    };
+
+
 public:
     Client();
-    Client(string name,int age,string livingAddress, string dateOfBirth) ;
+    Client(string name,string surname,int age,string livingAddress) ;
     friend ostream &operator <<(ostream &os,const Client &obj);
     Client(const Client &other);
     Client(Client &&other);

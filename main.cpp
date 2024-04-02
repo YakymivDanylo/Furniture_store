@@ -81,20 +81,40 @@ int main() {
         else{//client
             Shtrix();
             cout<<"Welcome"<<endl;
-
-            cout<<"You need to log in"<<endl;
-            cout<<"Enter your name: "<<endl;
-            shared_ptr<string>name{new string{""}};
-            cin>>*name;
-            cout<<"Enter your surname: "<<endl;
-            shared_ptr<string> surname{new string{""}};
-            cin>>*surname;
-
-
-            Shtrix();
+            AddClient();
             cout<<"Choose what do you want: "<<endl;
             cout<<"A - View catalog of furniture "<<endl;
+            cout<<"B - Make Order "<<endl;
+            cout<<"C - View history "<<endl;
+            cout<<" press Q - if you want to stop "<<endl;
+            char choice;
+            cin>>choice;
+            try{
+                if(choice!='A'&& choice!='B'&&choice!='C'&&choice!='Q') {
+                    throw WrongChoice();
+                }
+                switch (choice) {
+                    case 'A':{
+                        ShowFur();
+                        break;
+                    }
+                    case 'B':{
+                        MakeOrder();
+                        break;
+                    }
+                    case 'C':{
 
+                        break;
+                    }
+                    case 'Q':{
+                        return 0;
+                    }
+
+                }
+            }
+            catch (WrongChoice &A){
+                cerr<<A.what();
+            }
 
 
 

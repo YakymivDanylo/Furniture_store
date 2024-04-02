@@ -2,34 +2,34 @@
 #include <iostream>
 
 Client::Client()
-        :People(),livingAddress("unknown"),dateOfBirth("unknown"){}
+        :People(),surname("unknown"),livingAddress("unknown"){}
 
-Client::Client(string name,int age,string livingAddress, string dateOfBirth)
-        :People(name,age),livingAddress(livingAddress),dateOfBirth(dateOfBirth){}
+Client::Client(string name,string surname,int age,string livingAddress)
+        :People(name,age),surname(surname),livingAddress(livingAddress){}
 
 ostream &operator<<(ostream &os,const Client &obj) {
-    os << "Name: " << obj.name << "; Age: " << obj.age << "; Living address: " << obj.livingAddress << "; Date of birthday: "
-       << obj.dateOfBirth;
+    os << obj.name<<"\t"<<obj.surname <<"\t"<< obj.age  << "\t"<<obj.livingAddress <<endl;
     return os;
 }
 Client::Client(const Client &other)
-        :People(other),livingAddress(other.livingAddress),dateOfBirth(other.dateOfBirth){}
+        :People(other),surname(other.surname),livingAddress(other.livingAddress){}
 
 Client::Client( Client &&other)
-        :People(other),livingAddress(other.livingAddress),dateOfBirth(other.dateOfBirth)
+        :People(other),surname(other.surname),livingAddress(other.livingAddress)
 {
     other.name = "noname ";
+    other.surname="unknown";
     other.age = 0;
     other.livingAddress = " unknown";
-    other.dateOfBirth = "unknown ";
+
 }
 
 void Client::getPerson()
 {
-    cout<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<"; Date of birth of the person :"<<dateOfBirth<<endl;
+    cout<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<endl;
 }
 
 void Client::print(std::ostream &os) const
 {
-    os<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<"; Date of birth of the person :"<<dateOfBirth<<endl;
+    os<<"Name of the person: "<<name<<"; Age of the person:"<<age<<"; Address of the person:"<<livingAddress<<endl;
 }
