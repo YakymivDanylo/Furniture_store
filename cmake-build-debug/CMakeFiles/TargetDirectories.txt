@@ -1,0 +1,3 @@
+C:/clion/Furniture_store/cmake-build-debug/CMakeFiles/Furniture_store.dir
+C:/clion/Furniture_store/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/clion/Furniture_store/cmake-build-debug/CMakeFiles/rebuild_cache.dir

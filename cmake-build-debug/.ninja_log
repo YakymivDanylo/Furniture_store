@@ -1,0 +1,13 @@
+# ninja log v5
+5	518	7337849711963773	CMakeFiles/Furniture_store.dir/Employee.cpp.obj	278e2dc403d55504
+20	542	7337849712203772	CMakeFiles/Furniture_store.dir/People.cpp.obj	774dd5f00aaecfb2
+1	555	7337849712343767	CMakeFiles/Furniture_store.dir/Client.cpp.obj	8e609a0a0f71a97e
+10	574	7337849712523891	CMakeFiles/Furniture_store.dir/Furniture.cpp.obj	5e95d30c5d7e9d5d
+9	445	7337850229910103	CMakeFiles/Furniture_store.dir/Order.cpp.obj	9bbe298cc803f136
+2	596	7337850231420021	CMakeFiles/Furniture_store.dir/main.cpp.obj	1bc0714ef117cb41
+6	619	7337850231660149	CMakeFiles/Furniture_store.dir/Functions.cpp.obj	a0ae0d7882b460ea
+620	722	7337850232650103	Furniture_store.exe	f44f64bfe8ef8b06
+3	597	7337853496038264	CMakeFiles/Furniture_store.dir/Functions.cpp.obj	a0ae0d7882b460ea
+597	702	7337853497048234	Furniture_store.exe	f44f64bfe8ef8b06
+2	606	7337854069402185	CMakeFiles/Furniture_store.dir/main.cpp.obj	1bc0714ef117cb41
+607	713	7337854070432200	Furniture_store.exe	f44f64bfe8ef8b06

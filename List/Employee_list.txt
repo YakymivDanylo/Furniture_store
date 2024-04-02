@@ -1,0 +1,4 @@
+1	John Smith	500	HR	
+2	Alan Wake	1020	-	
+3	Tom Zayn	400	-	
+5	John wIck	10000	killer	
