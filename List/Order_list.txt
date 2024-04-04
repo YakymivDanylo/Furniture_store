@@ -1,3 +1,6 @@
 Danylo	 	 Kobrynskoy	500 	DOLLARS 	20 	Reserved
 Danylo	 	 Kobrynska	305 	dollars 	20 	Reserved
 
+Danylo	 	 sdoafa	500 	DOLLARS 	20 	Reserved
+John	 	 fsfsofse	375 	DOLLARS 	20 	Reserved
+John	 	 Los_Angeles	375 	DOLLARS 	20 	Reserved

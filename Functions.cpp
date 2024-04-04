@@ -74,7 +74,7 @@ void ShowEmp(){
 }
 
 void ShowClients(){
-    ifstream finE((R"(C:\clion\Furniture_store\List\Client_list.txt)"));
+    ifstream finE(R"(C:\clion\Furniture_store\List\Client_list.txt)");
     if(!finE.is_open()){
         cerr<<"Can`t open file "<<endl;
     }
@@ -175,9 +175,9 @@ void MakeOrder(Client client) {
     cout<<"Enter number of furniture"<<endl;
     cin>>*numOfFurniture;
     ifstream finFur(R"(C:\clion\Furniture_store\List\Furniture_list.txt)");
+    int counter=0;
     while(finFur>>*num>>*name>>*price>>*currency>>*color){
         if(*numOfFurniture==*num){
-            finFur.close();
             ofstream foutOr(R"(C:\clion\Furniture_store\List\Order_list.txt)",ios_base::app);
             shared_ptr<string> addressDelivery{new string{""}};
             shared_ptr<double> priceDelivery{new double{20}};
@@ -187,15 +187,15 @@ void MakeOrder(Client client) {
             Order order(*addressDelivery,*price,*currency,*priceDelivery,*status);
             foutOr<<client.getNameOfClient()<<"\t"<<order<<endl;
             foutOr.close();
-
+            counter++;
         }
-        else
-        {
-            cerr<<"There is no furniture with that number"<<endl;
 
-        }
-        finFur.close();
+
     }
+    if(counter==0){
+        cerr<<"There is no furniture with this number"<<endl;
+    }
+    finFur.close();
 }
 
 void ViewHistory(Client client){
