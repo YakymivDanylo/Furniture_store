@@ -41,12 +41,14 @@ int main() {
                     cout<<"A-ADD FURNITURE"<<endl;
                     cout<<"B-ADD EMPLOYEE"<<endl;
                     cout<<"C-SHOW THE LIST OF EMPLOYEE"<<endl;
+                    cout<<"D-SHOW THE LIST OF CLIENTS"<<endl;
+                    cout<<"E-SHOW THE LIST OF FURNITURE"<<endl;
                     cout<<"PRESS 'Q' IF YOU WANT TO STOP"<<endl;
                     Shtrix();
                     char  choice;
                     cin>>choice;
                     try{
-                        if(choice !='A' && choice !='B' && choice !='C' && choice !='D' && choice !='E' && choice !='F' && choice !='G' && choice !='Q' )
+                        if(choice !='A' && choice !='B' && choice !='C' && choice !='D' && choice!='E' && choice !='Q' )
                             throw WrongChoice();
                         switch (choice) {
                             case 'A':{
@@ -61,6 +63,14 @@ int main() {
                             case 'C':{
 
                                 ShowEmp();
+                                break;
+                            }
+                            case 'D':{
+                                ShowClients();
+                                break;
+                            }
+                            case 'E':{
+                                ShowFur();
                                 break;
                             }
                             case 'Q':{//smth

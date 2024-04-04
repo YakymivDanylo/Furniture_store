@@ -73,6 +73,22 @@ void ShowEmp(){
     finE.close();
 }
 
+void ShowClients(){
+    ifstream finE((R"(C:\clion\Furniture_store\List\Client_list.txt)"));
+    if(!finE.is_open()){
+        cerr<<"Can`t open file "<<endl;
+    }
+
+    shared_ptr<string> name {new string {""}};
+    shared_ptr<string> surname {new string {""}};
+    shared_ptr<int> age {new int {0}};
+    shared_ptr<string> livingAddress {new string {""}};
+    while(finE>>*name>>*surname>>*age>>*livingAddress){
+        cout<<*name<<"\t"<< *surname<<" "<<*age<<"\t" <<*livingAddress<<endl;
+    }
+    finE.close();
+}
+
 bool IsEmpInFile(string nameEm, string surnameEm) {
     ifstream finE(R"(C:\clion\Furniture_store\List\Employee_list.txt)");
     if (!finE.is_open()) {
@@ -170,7 +186,6 @@ void MakeOrder(Client client) {
             cin>>*addressDelivery;
             Order order(*addressDelivery,*price,*currency,*priceDelivery,*status);
             foutOr<<client.getNameOfClient()<<"\t"<<order<<endl;
-
             foutOr.close();
 
         }
@@ -198,9 +213,10 @@ void ViewHistory(Client client){
        while(finOr>>*name>>*addressDelivery>>*price>>*currency>>*priceDelivery>>*status){
            cout<<*name<<"\t"<<*addressDelivery<<"\t"<<*price<<"\t"<<*currency<<"\t"<<*priceDelivery<<"\t"<<*status<<endl;
            cout<<endl;
-           finOr.close();
+
 
        }
+       finOr.close();
    }
 
 }

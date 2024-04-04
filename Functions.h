@@ -14,6 +14,7 @@ void  Shtrix();
 void AddFurniture();
 void AddEmployee();
 void ShowEmp();
+void ShowClients();
 bool IsEmpInFile(string nameEm,string surnameEm);
 void AddClient(Client client);
 void ShowFur();
