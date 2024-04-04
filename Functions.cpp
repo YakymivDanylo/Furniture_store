@@ -182,3 +182,25 @@ void MakeOrder(Client client) {
         finFur.close();
     }
 }
+
+void ViewHistory(Client client){
+    ifstream finOr(R"(C:\clion\Furniture_store\List\Order_list.txt)");
+   if(!finOr.is_open()){
+       cerr<<"Error opening file "<<endl;
+   }else{
+       shared_ptr<string> name {new string {""}};
+       shared_ptr<string> nameClient {new string {""}};
+       shared_ptr<int> price{new int{0}};
+       shared_ptr<string> currency{new string {""}};
+       shared_ptr<string> addressDelivery{new string{""}};
+       shared_ptr<double> priceDelivery{new double{20}};
+       shared_ptr<string> status{new string{"Reserved"}};
+       while(finOr>>*name>>*addressDelivery>>*price>>*currency>>*priceDelivery>>*status){
+           cout<<*name<<"\t"<<*addressDelivery<<"\t"<<*price<<"\t"<<*currency<<"\t"<<*priceDelivery<<"\t"<<*status<<endl;
+           cout<<endl;
+           finOr.close();
+
+       }
+   }
+
+}

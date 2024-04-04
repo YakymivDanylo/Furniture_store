@@ -18,6 +18,7 @@ bool IsEmpInFile(string nameEm,string surnameEm);
 void AddClient(Client client);
 void ShowFur();
 void MakeOrder(Client client);
+void ViewHistory(Client client);
 
 
 #endif //FURNITURE_STORE_FUNCTIONS_H

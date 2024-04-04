@@ -102,6 +102,7 @@ int main() {
                 cout << "B - Make Order " << endl;
                 cout << "C - View history " << endl;
                 cout << " press Q - if you want to stop " << endl;
+                Shtrix();
                 char choice;
 
                 cin >> choice;
@@ -122,6 +123,7 @@ int main() {
                         }
                         case 'C': {
 
+                            ViewHistory(newClient);
                             break;
                         }
                         case 'Q': {
