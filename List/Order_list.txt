@@ -4,3 +4,7 @@ Danylo	 	 Kobrynska	305 	dollars 	20 	Reserved
 Danylo	 	 sdoafa	500 	DOLLARS 	20 	Reserved
 John	 	 fsfsofse	375 	DOLLARS 	20 	Reserved
 John	 	 Los_Angeles	375 	DOLLARS 	20 	Reserved
+Matviy	 	 Molodigna	500 	DOLLARS 	20 	Reserved
+Anton	 	 Chenrivtsi	375 	DOLLARS 	20 	Reserved
+Daria	 	 Nebesnoy_sotni	375 	DOLLARS 	20 	Reserved
+David	 	 -	3000 	dollars 	20 	Reserved

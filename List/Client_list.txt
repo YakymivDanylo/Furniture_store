@@ -6,3 +6,11 @@ John	Wick	30	Los
 
 Alan	Wake	35	Uknown
 
+Matviy	Yakymiv	12	Molodigna
+
+Anton	Olianiuk	18	Vinnica
+
+Daria	Nevmuvana	17	Nebesnoy_sotni
+
+David	Lichinskiy	17	-
+

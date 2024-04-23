@@ -1,2 +1,5 @@
 1	TABLE 500  DOLLARS BLACK	
 2	MIRROR 375  DOLLARS TRANSAPENT	
+3	Chair 100  dollars black	
+4	sofa 2000  dollars white	
+5	Bed 3000  dollars white	
