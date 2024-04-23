@@ -15,6 +15,7 @@
 #include "Functions.h"
 #include "Employee.h"
 using namespace std;
+/*//task 1
 template <size_t N>
 array<int, N> shiftArray(const array<int, N> & arr, int shift) {
     if (shift == 0) {
@@ -27,10 +28,84 @@ array<int, N> shiftArray(const array<int, N> & arr, int shift) {
     }
 
     return shiftedArr;
+}*/
+
+//task2
+template <typename T>
+void insertVector(vector<T> &inVector, vector<T> &fromVector,int insertPosition){
+    try {
+        if (insertPosition > inVector.size())
+        throw out_of_range(" Out of range");
+
+
+        if (insertPosition == inVector.size()) {
+            auto itFrom = fromVector.begin();
+            while (itFrom != fromVector.end()) {
+                inVector.push_back(*itFrom);
+                itFrom++;
+            }
+        } else {
+            int counter = 0;
+            vector<T> bufvector;
+            for (auto itIn = inVector.begin(); itIn != inVector.end(); itIn++) {
+
+                if (counter > insertPosition - 1) {
+                    cout << endl;
+                    cout<<"Elements that stay after insert position: "<<endl;
+                    cout << *itIn <<endl;
+                    cout<<endl;
+                    bufvector.push_back(*itIn);
+
+                }
+
+                else {
+                    counter++;
+                    cout<<"Elements that stay before insert position: "<<endl;
+                    cout << *itIn << " " << endl;
+
+                }
+            }
+            auto itIn = inVector.rbegin();
+            for (int i = 0; i < bufvector.size(); i++) {
+                inVector.pop_back();
+            }
+
+            cout << "------------------" << endl;
+            cout<<endl;
+            for (auto itIn = inVector.begin(); itIn != inVector.end(); itIn++) {
+                cout << *itIn << " ";
+            }
+                cout<<endl;
+            auto itFrom = fromVector.begin();
+            while (itFrom != fromVector.end()) {
+                inVector.push_back(*itFrom);
+                itFrom++;
+            }
+            auto itBuf = bufvector.begin();
+            while (itBuf != bufvector.end()) {
+                inVector.push_back(*itBuf);
+                itBuf++;
+            }
+
+        }
+        cout << "------------------" << endl;
+        for (auto itIn = inVector.begin(); itIn != inVector.end(); itIn++) {
+            cout << *itIn << " ";
+        }
+    }
+    catch (out_of_range &e){
+        cout<<e.what()<<endl;
+    }
+
 }
 
-int main() {
 
+
+
+
+
+int main() {
+/*//task1
         array<int, 5> arr = {1, 2, 3, 4, 5};
         int shift =3;
 
@@ -41,8 +116,13 @@ int main() {
         }
 
         cout << endl;
+        */
 
+//task 2
+vector<int> vector1{1,2,3,4};
+vector<int> vector2{11,13,15};
 
+    insertVector(vector1,vector2,3);
 
 
 
