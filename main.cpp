@@ -30,7 +30,7 @@ array<int, N> shiftArray(const array<int, N> & arr, int shift) {
     return shiftedArr;
 }*/
 
-//task2
+/*//task2
 template <typename T>
 void insertVector(vector<T> &inVector, vector<T> &fromVector,int insertPosition){
     try {
@@ -97,8 +97,52 @@ void insertVector(vector<T> &inVector, vector<T> &fromVector,int insertPosition)
         cout<<e.what()<<endl;
     }
 
-}
+}*/
+//task 3
+template <typename T>
+void deleteMidEl(deque<T> dIn,deque<T> dFrom){
+    cout<<"Size of queue: "<<dFrom.size()<< endl;
+        cout<<"Queue is odd"<<endl;
 
+        int middleIndex = dFrom.size()/2;//знаходимо індекс середини черги
+        if(middleIndex%2==0){// к-сть елементів в черзі непарна
+            int counter = 0 ;
+            for(auto itFrom = dFrom.begin();itFrom != dFrom.end();itFrom++){
+                cout<<*itFrom<<" ";
+
+                if(counter > middleIndex ){
+//                    cout<<"this element you pushed in dIn: "<<endl;
+//                    cout<<*itFrom<< endl;
+                    dIn.push_front(*itFrom);
+                }
+                else{
+                    counter ++;
+//                    cerr<<*itFrom<<" ";
+                }
+
+                if(counter<middleIndex+1){
+//                    cout<<"this element you pushed in dIn: "<<endl;
+//                    cout<<*itFrom<< endl;
+                    dIn.push_front(*itFrom);
+
+                }
+
+            }
+            cout<<endl;
+            cout<<"Here is you queue with middle element: "<<endl;
+            for(auto itIn = dIn.rbegin();itIn!=dIn.rend();itIn++){
+                cout<<*itIn<<" ";
+            }
+
+        }
+
+
+
+
+
+
+
+}
 
 
 
@@ -118,13 +162,16 @@ int main() {
         cout << endl;
         */
 
-//task 2
+/*//task 2
 vector<int> vector1{1,2,3,4};
 vector<int> vector2{11,13,15};
 
     insertVector(vector1,vector2,3);
-
-
+*/
+//task 3
+deque<int> dFrom {1,2,3,4,5};
+deque<int> dIn {};
+    deleteMidEl(dIn,dFrom);
 
 
 
