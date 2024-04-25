@@ -102,11 +102,10 @@ void insertVector(vector<T> &inVector, vector<T> &fromVector,int insertPosition)
 template <typename T>
 void deleteMidEl(deque<T> dIn,deque<T> dFrom){
     cout<<"Size of queue: "<<dFrom.size()<< endl;
-        cout<<"Queue is odd"<<endl;
-
         int middleIndex = dFrom.size()/2;//знаходимо індекс середини черги
-        if(middleIndex%2==0){// к-сть елементів в черзі непарна
-            int counter = 0 ;
+        cout<<"middle index = "<<middleIndex<<endl;
+    int counter = 0 ;
+        if(dFrom.size()%2!=0){// к-сть елементів в черзі непарна
             for(auto itFrom = dFrom.begin();itFrom != dFrom.end();itFrom++){
                 cout<<*itFrom<<" ";
 
@@ -126,7 +125,6 @@ void deleteMidEl(deque<T> dIn,deque<T> dFrom){
                     dIn.push_front(*itFrom);
 
                 }
-
             }
             cout<<endl;
             cout<<"Here is you queue with middle element: "<<endl;
@@ -135,6 +133,33 @@ void deleteMidEl(deque<T> dIn,deque<T> dFrom){
             }
 
         }
+        else {
+            for (auto itFrom = dFrom.begin(); itFrom != dFrom.end(); itFrom++) {
+                cout << *itFrom << " ";
+                if (counter > middleIndex) {
+//                    cout<<"this element you pushed in dIn: "<<endl;
+//                    cout<<*itFrom<< endl;
+                    dIn.push_front(*itFrom);
+                } else {
+                    counter++;
+//                    cerr<<*itFrom<<" ";
+                }
+
+                if (counter < middleIndex ) {
+//                    cout<<"this element you pushed in dIn: "<<endl;
+//                    cout<<*itFrom<< endl;
+                    dIn.push_front(*itFrom);
+
+                }
+            }
+            cout<<endl;
+            cout<<"Here is you queue with middle element: "<<endl;
+            for(auto itIn = dIn.rbegin();itIn!=dIn.rend();itIn++){
+                cout<<*itIn<<" ";
+        }
+
+        }
+
 
 
 
@@ -169,7 +194,7 @@ vector<int> vector2{11,13,15};
     insertVector(vector1,vector2,3);
 */
 //task 3
-deque<int> dFrom {1,2,3,4,5};
+deque<int> dFrom {1,2,3,4,5,6};
 deque<int> dIn {};
     deleteMidEl(dIn,dFrom);
 
